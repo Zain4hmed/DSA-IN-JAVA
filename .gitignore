@@ -1,0 +1,6 @@
+# Ignore specific files
+DSA-IN-JAVA.iml
+
+# Ignore specific folders
+out/
+.idea/
