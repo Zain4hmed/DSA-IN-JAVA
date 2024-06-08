@@ -27,3 +27,11 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+### Ignored Folders ###
+.idea/
+.gitignore
+
+### Ignored Files ###
+DSA-IN-JAVA.iml
+*.iml
