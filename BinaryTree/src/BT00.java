@@ -107,10 +107,31 @@ public class BT00 {
             return 0;
         }
 
-        int sumOfRightNode =   sumOfNodes(root.left);
-        int sumOfLeftNode = sumOfNodes(root.right);
+        int leftSum  =   sumOfNodes(root.left);
+        int rightSum =   sumOfNodes(root.right);
 
-        return 
+        return  leftSum + rightSum + root.data;
+    }
+
+    public static int height(Node root){
+        if(root == null){
+            return 0;
+        }
+        int leftHeight = height(root.left);
+        int rightHeight = height(root.right);
+
+        int myHeight = Math.max(leftHeight,rightHeight) + 1;
+        return myHeight;
+    }
+
+    public static int diameterOfATree(Node root){
+        if(root == null){
+            return 0;
+        }
+        int diam1 = diameterOfATree(root.left);
+        int diam2 = diameterOfATree(root.right);
+        int diam3 = height(root.left)+height(root.right)+1;
+        return Math.max(diam3,Math.max(diam1,diam2));
     }
 
     public static void main(String[] args) {
@@ -124,5 +145,8 @@ public class BT00 {
         System.out.print("postorder  : "); postorder(root);  System.out.println();
         System.out.println("↓ levelorder ↓"); levelorder(root);
         System.out.println("Number of nodes in the tree : "+countOfNodes(root));
+        System.out.println("Sum of nodes in the tree    : "+sumOfNodes(root));
+        System.out.println("Height of the binary tree   : "+height(root));
+        System.out.println("diameter of a tree : "+diameterOfATree(root));
     }
 }
